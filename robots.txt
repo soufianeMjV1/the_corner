@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Sitemap: https://cornercoffeeshop.ma/sitemap.xml
+
+# Allow all bots to access content
+User-agent: Googlebot
+Allow: /
+User-agent: Googlebot-Image
+Allow: /static/assets/
+User-agent: Bingbot
+Allow: /
+User-agent: Slurp
+Allow: /
