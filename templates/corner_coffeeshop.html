@@ -82,6 +82,9 @@
     }
     </script>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
         
@@ -114,23 +117,100 @@
             background-color: var(--cream-white);
         }
 
-        /* Navigation */
+        /* Navbar Specific Styles */
+        .navbar {
+            background-color: var(--dark-green) !important;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            color: var(--cream-white) !important;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .navbar-toggler {
+            border-color: var(--cream-white);
+            padding: 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(249, 249, 240, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        .nav-link {
+            color: var(--cream-white) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent-gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background-color: var(--dark-green);
+                padding: 1rem;
+                border-radius: 0 0 15px 15px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-link {
+                text-align: center;
+                padding: 0.75rem !important;
+                margin: 0.25rem 0;
+            }
+
+            .nav-link:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                transform: none;
+            }
+
+            .nav-link::after {
+                display: none;
+            }
+        }
+
+        /* Enhanced Navbar Styles */
         .navbar {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             background: var(--dark-green);
-            backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: var(--transition);
             padding: 1rem 0;
-        }
-
-        .navbar.scrolled {
-            background: var(--primary-green);
+            transition: var(--transition);
         }
 
         .nav-container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
@@ -139,82 +219,28 @@
             align-items: center;
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo::before {
-            content: "☕";
-            font-size: 1.5rem;
-        }
-
         .nav-menu {
             display: flex;
-            list-style: none;
+            align-items: center;
             gap: 2rem;
-        }
-
-        .nav-link {
-            color: var(--cream-white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-        }
-
-        .nav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--accent-gold);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
         }
 
         .hamburger {
             display: none;
-            flex-direction: column;
             cursor: pointer;
-            gap: 4px;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            z-index: 1001;
         }
 
         .hamburger span {
+            display: block;
             width: 25px;
-            height: 3px;
-            background-color: var(--cream-white);
+            height: 2px;
+            margin: 5px 0;
+            background: var(--cream-white);
             transition: var(--transition);
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
         }
 
         /* Hero Section */
@@ -520,7 +546,7 @@
 
         .contact-form {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 15px;
             box-shadow: var(--shadow);
         }
@@ -532,28 +558,32 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 500;
             color: var(--primary-green);
+            font-weight: 500;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: var(--cream-white);
+            color: var(--text-dark);
             font-size: 1rem;
-            transition: border-color 0.3s ease;
-            transform: translateY(0);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: var(--transition);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            transform: translateY(-2px);
             border-color: var(--primary-green);
-            box-shadow: 0 4px 12px rgba(20, 106, 44, 0.1);
+            box-shadow: 0 0 0 2px rgba(20, 106, 44, 0.1);
             outline: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
         }
 
         .contact-info {
@@ -745,65 +775,50 @@
         }
 
         @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
             .nav-menu {
                 position: fixed;
                 top: -100%;
                 left: 0;
                 width: 100%;
-                padding: 2rem;
+                height: auto;
                 background: var(--dark-green);
                 flex-direction: column;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: var(--shadow);
-                z-index: 999;
+                padding: 2rem;
+                transition: 0.4s ease-in-out;
+                opacity: 0;
+                visibility: hidden;
             }
 
             .nav-menu.active {
                 top: 70px;
+                opacity: 1;
+                visibility: visible;
             }
 
-            .hamburger {
-                display: flex;
-            }
-
-            .hero-content {
+            .nav-link {
+                width: 100%;
+                text-align: center;
                 padding: 1rem;
             }
 
-            .hero h1 {
-                font-size: clamp(2rem, 4vw, 3rem);
+            .nav-link:hover {
+                background: rgba(255, 255, 255, 0.1);
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                gap: 1rem;
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
             }
 
-            .btn {
-                width: 100%;
-                text-align: center;
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
             }
 
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .menu-item {
-                margin: 0 1rem;
-            }
-
-            .contact-form,
-            .contact-info {
-                padding: 1.5rem;
-            }
-
-            .footer-content {
-                padding: 2rem 1rem;
-            }
-
-            .social-links {
-                flex-wrap: wrap;
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
             }
         }
 
@@ -965,20 +980,28 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">{{ hero.title }}</a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#menu" class="nav-link">Menu</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">{{ hero.title }}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -1068,18 +1091,18 @@
             <div class="contact-content">
                 <div class="contact-form animate-on-scroll">
                     <h3>Get In Touch</h3>
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
@@ -1163,6 +1186,8 @@
         </div>
     </footer>
 
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Mobile menu toggle
         const hamburger = document.getElementById('hamburger');
@@ -1173,7 +1198,15 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a nav link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -1241,46 +1274,50 @@
             }
         });
 
-        // Add some interactive hover effects
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+        // Enhanced Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navbar = document.getElementById('navbar');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
             });
         });
 
-        // Active navigation link highlighting
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
+        // Form submission handling with visual feedback
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const submitButton = this.querySelector('button[type="submit"]');
+                submitButton.innerHTML = 'Sending...';
+                submitButton.disabled = true;
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+                // Simulate form submission (replace with actual form submission)
+                setTimeout(() => {
+                    alert('Thank you for your message! We\'ll get back to you soon.');
+                    this.reset();
+                    submitButton.innerHTML = 'Send Message';
+                    submitButton.disabled = false;
+                }, 1500);
             });
-        });
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease-in-out';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
+        }
 
         // Coffee steam animation (for fun!)
         function createSteamEffect() {

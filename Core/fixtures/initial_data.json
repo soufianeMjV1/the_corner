@@ -1,0 +1,156 @@
+[
+    {
+        "model": "Core.herosection",
+        "pk": 1,
+        "fields": {
+            "title": "The Corner Coffeeshop",
+            "tagline": "Where Every Cup Tells a Story | كل فنجان يحكي قصة",
+            "description": "Experience the finest specialty coffee in Kenitra, crafted with passion and served with warmth. Join us for an unforgettable coffee journey.",
+            "cta_primary_text": "Explore Menu",
+            "cta_secondary_text": "Visit Us",
+            "background_image": "hero/coffee-hero.jpg"
+        }
+    },
+    {
+        "model": "Core.menuitem",
+        "pk": 1,
+        "fields": {
+            "name": "Signature Espresso",
+            "description": "Our house blend espresso, perfectly balanced with notes of chocolate and caramel",
+            "price": "25.00",
+            "image": "menu/espresso.jpg",
+            "is_active": true,
+            "created_at": "2025-08-03T10:00:00Z"
+        }
+    },
+    {
+        "model": "Core.menuitem",
+        "pk": 2,
+        "fields": {
+            "name": "Caramel Macchiato",
+            "description": "Smooth espresso marked with vanilla and caramel, topped with silky milk foam",
+            "price": "35.00",
+            "image": "menu/macchiato.jpg",
+            "is_active": true,
+            "created_at": "2025-08-03T10:00:00Z"
+        }
+    },
+    {
+        "model": "Core.menuitem",
+        "pk": 3,
+        "fields": {
+            "name": "Morocco Mint Tea",
+            "description": "Traditional Moroccan mint tea served with fresh mint leaves",
+            "price": "20.00",
+            "image": "menu/mint-tea.jpg",
+            "is_active": true,
+            "created_at": "2025-08-03T10:00:00Z"
+        }
+    },
+    {
+        "model": "Core.menuitem",
+        "pk": 4,
+        "fields": {
+            "name": "Kenitra Special Blend",
+            "description": "Our local specialty blend featuring Moroccan spices and premium coffee",
+            "price": "30.00",
+            "image": "menu/special-blend.jpg",
+            "is_active": true,
+            "created_at": "2025-08-03T10:00:00Z"
+        }
+    },
+    {
+        "model": "Core.aboutsection",
+        "pk": 1,
+        "fields": {
+            "title": "Our Story",
+            "subtitle": "Crafting Perfect Moments Since 2020",
+            "main_content": "Founded in the heart of Kenitra, The Corner Coffeeshop has been serving premium coffee and creating memorable experiences for our community. Our passion for quality coffee, combined with warm Moroccan hospitality, makes us more than just a coffee shop - we're a home away from home.",
+            "side_content": "Bringing the world's finest coffee to Kenitra",
+            "image": "about/about-image.jpg",
+            "years_serving": 5,
+            "happy_customers": 50000,
+            "coffee_varieties": 15
+        }
+    },
+    {
+        "model": "Core.contactinfo",
+        "pk": 1,
+        "fields": {
+            "address_line1": "123 Avenue Mohammed V",
+            "address_line2": "Kenitra, Morocco 14000",
+            "phone_primary": "+212 5377-12345",
+            "phone_secondary": "+212 6611-12345",
+            "email": "hello@cornercoffeeshop.ma",
+            "weekday_hours": "Monday-Friday: 7:00 AM - 10:00 PM",
+            "weekend_hours": "Saturday-Sunday: 8:00 AM - 11:00 PM",
+            "map_link": "https://goo.gl/maps/your-location"
+        }
+    },
+    {
+        "model": "Core.review",
+        "pk": 1,
+        "fields": {
+            "author": "Mohammed Alami",
+            "content": "أفضل قهوة في القنيطرة! الأجواء رائعة والخدمة ممتازة",
+            "rating": 5,
+            "language": "ar",
+            "date_posted": "2025-07-15",
+            "is_featured": true
+        }
+    },
+    {
+        "model": "Core.review",
+        "pk": 2,
+        "fields": {
+            "author": "Sophie Martin",
+            "content": "Le meilleur café de la ville! L'ambiance est parfaite pour travailler ou se détendre.",
+            "rating": 5,
+            "language": "fr",
+            "date_posted": "2025-07-20",
+            "is_featured": true
+        }
+    },
+    {
+        "model": "Core.review",
+        "pk": 3,
+        "fields": {
+            "author": "John Smith",
+            "content": "Amazing coffee and great atmosphere! A must-visit spot in Kenitra.",
+            "rating": 5,
+            "language": "en",
+            "date_posted": "2025-07-25",
+            "is_featured": true
+        }
+    },
+    {
+        "model": "Core.sociallink",
+        "pk": 1,
+        "fields": {
+            "platform": "instagram",
+            "url": "https://instagram.com/cornercoffeeshop.ma",
+            "icon": "📱",
+            "is_active": true
+        }
+    },
+    {
+        "model": "Core.sociallink",
+        "pk": 2,
+        "fields": {
+            "platform": "facebook",
+            "url": "https://facebook.com/cornercoffeeshop.ma",
+            "icon": "👍",
+            "is_active": true
+        }
+    },
+    {
+        "model": "Core.sociallink",
+        "pk": 3,
+        "fields": {
+            "platform": "twitter",
+            "url": "https://twitter.com/cornercoffeema",
+            "icon": "🐦",
+            "is_active": true
+        }
+    }
+]
